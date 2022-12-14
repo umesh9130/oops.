@@ -1,0 +1,107 @@
+import java.util.*;
+
+class Publication {
+    String title;
+    double price;
+    int copies;
+
+    public void sellcopy() {
+
+    }
+
+    public void setPrice() {
+
+    }
+}
+
+class Book extends Publication {
+    String author;
+
+    public void sellcopy() {
+        System.out.println("Enter the Title of the Book=\t" + title + "\n");
+        System.out.println("Enter the Author Name of the Book=\t" + author + "\n");
+        System.out.println("Enter the Price of the 1 Book=\t" + price + "\n");
+        System.out.println("Enter the Copies Orderd of the Book=\t" + copies + "\n");
+        System.out.println(" The Total sale of the Book=\t" + "Rs. " + (price * copies) + "\n");
+    }
+
+    public void ordercopies() {
+        System.out.println("Order Quantity=\n");
+        Scanner sc = new Scanner(System.in);
+        copies = sc.nextInt();
+
+    }
+
+    public void setPrice() {
+        System.out.println("Enter the Title of Book=\n");
+        Scanner tit = new Scanner(System.in);
+        title = tit.next();
+
+        System.out.println("Enter the Author of Book=\n");
+        Scanner auth = new Scanner(System.in);
+        author = auth.next();
+
+        System.out.println("Enter the Price of Book=\n");
+        Scanner pri = new Scanner(System.in);
+        price = pri.nextInt();
+
+    }
+}
+
+class Magazine extends Publication {
+
+    String currentissue;
+
+    public void sellcopy() {
+        System.out.println("Enter the Title of the Magazine =\t" + title + "\n");
+        System.out.println("Enter the Price of the 1 Magazine=\t" + price + "\n");
+        System.out.println("Enter the Copies Orderd of the Magazine=\t" + copies + "\n");
+        System.out.println(" The Total sale of the Magazine=\t" + "Rs. " + (price * copies) + "\n");
+    }
+
+    public void orderQuantity() {
+        System.out.println("Order Quantity of Magazine=\n");
+        Scanner quantity = new Scanner(System.in);
+        copies = quantity.nextInt();
+    }
+
+    public void currentissue() {
+        System.out.println("Current Issue of the Magazine is=\t" + currentissue + "\n");
+    }
+
+    public void receiveissue() {
+        System.out.println("You will get=\t" + currentissue + "Magazine Soon...\n");
+    }
+
+    public void setPrice() {
+        System.out.println("Enter the Title of Magazine =\n");
+        Scanner tit = new Scanner(System.in);
+        title = tit.next();
+
+        System.out.println("Enter the Issue of Magazine=\n");
+        Scanner Issue = new Scanner(System.in);
+        currentissue = Issue.next();
+
+        System.out.println("Enter the Price of Magazine=\n");
+        Scanner pri = new Scanner(System.in);
+        price = pri.nextInt();
+
+    }
+
+}
+
+class publication {
+    public static void main(String args[]) {
+        Book b = new Book();
+        b.setPrice();
+        b.ordercopies();
+        b.sellcopy();
+
+        Magazine m = new Magazine();
+        m.setPrice();
+        m.orderQuantity();
+        m.receiveissue();
+        m.sellcopy();
+
+    }
+}
