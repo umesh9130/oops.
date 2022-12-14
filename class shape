@@ -1,0 +1,178 @@
+//class employee
+import java.util.*;
+abstract class Employee 
+{
+	String emp_Name,emp_adr,emp_Mail;
+	int emp_Id;
+	long emp_Mob;
+	void get_data()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the details of Employee");
+		System.out.println("Enter the name of Employee");
+		emp_Name=sc.next();
+		System.out.println("Enter the Id of Employee");
+		emp_Id=sc.nextInt();
+		System.out.println("Enter the mobile no. of Employee");
+		emp_Mob=sc.nextLong();
+		System.out.println("Enter the address of Employee");
+		emp_adr=sc.next();
+		System.out.println("Enter the E-mail of Employee");
+		emp_Mail=sc.next();
+		sc.close();
+	}
+	void display()
+	{
+		System.out.println("Details of Employee");
+		System.out.println("Name ; "+emp_Name);
+		System.out.println("Id : "+emp_Id);
+		System.out.println("Mobile no.: "+emp_Mob);
+		System.out.println("Address : "+emp_adr);
+		System.out.println("E-mail : "+emp_Mail);
+	}
+	abstract void calculate();
+}
+//class programmmer
+class Programmer extends Employee
+{
+	double bp,da,hra,pf,scf,gross,net;
+	public Programmer() {
+		bp=15000;
+	}
+	void calculate() 
+	{
+		da=bp*0.97;
+		hra=bp*0.10;
+		pf=bp*0.12;
+		scf=bp*0.001;
+		gross=bp+da+hra;
+		net=gross-(pf+scf);
+		System.out.println("*******************PAY SLIP*******************");
+		System.out.println("BASIC PAY    :    "+bp);
+		System.out.println("DEARLY ALLOWANCE    :    "+da);
+		System.out.println("HOUSE RENT ALLOWANCE    :    "+hra);
+		System.out.println("PROVIDENT FUND    :    "+pf);
+		System.out.println("SOCIAL CLUB FUND    :    "+scf);
+		System.out.println("GROSS PAY    :    "+gross);
+		System.out.println("NET TOTAL PAY    :    "+net);
+	}
+}
+//class team head
+class Team_head extends Employee
+{
+	double bp,da,hra,pf,scf,gross,net;
+	public Team_head() {
+		bp=20000;
+	}
+	void calculate() 
+	{
+		da=bp*0.97;
+		hra=bp*0.10;
+		pf=bp*0.12;
+		scf=bp*0.001;
+		gross=bp+da+hra;
+		net=gross-(pf+scf);
+		System.out.println("*******************PAY SLIP*******************");
+		System.out.println("BASIC PAY    :    "+bp);
+		System.out.println("DEARLY ALLOWANCE    :    "+da);
+		System.out.println("HOUSE RENT ALLOWANCE    :    "+hra);
+		System.out.println("PROVIDENT FUND    :    "+pf);
+		System.out.println("SOCIAL CLUB FUND    :    "+scf);
+		System.out.println("GROSS PAY    :    "+gross);
+		System.out.println("NET TOTAL PAY    :    "+net);
+	}
+}
+//class assistant project manager
+class Ass_prj_man extends Employee
+{
+	double bp,da,hra,pf,scf,gross,net;
+	public Ass_prj_man() {
+		bp=25000;
+	}
+	void calculate() 
+	{
+		da=bp*0.97;
+		hra=bp*0.10;
+		pf=bp*0.12;
+		scf=bp*0.001;
+		gross=bp+da+hra;
+		net=gross-(pf+scf);
+		System.out.println("*******************PAY SLIP*******************");
+		System.out.println("BASIC PAY    :    "+bp);
+		System.out.println("DEARLY ALLOWANCE    :    "+da);
+		System.out.println("HOUSE RENT ALLOWANCE    :    "+hra);
+		System.out.println("PROVIDENT FUND    :    "+pf);
+		System.out.println("SOCIAL CLUB FUND    :    "+scf);
+		System.out.println("GROSS PAY    :    "+gross);
+		System.out.println("NET TOTAL PAY    :    "+net);
+	}
+}
+//class project manager
+class Prj_man extends Employee
+{
+	double bp,da,hra,pf,scf,gross,net;
+	public Prj_man() {
+		bp=30000;
+	}
+	void calculate() 
+	{
+		da=bp*0.97;
+		hra=bp*0.10;
+		pf=bp*0.12;
+		scf=bp*0.001;
+		gross=bp+da+hra;
+		net=gross-(pf+scf);
+		System.out.println("*******************PAY SLIP*******************");
+		System.out.println("BASIC PAY    :    "+bp);
+		System.out.println("DEARLY ALLOWANCE    :    "+da);
+		System.out.println("HOUSE RENT ALLOWANCE    :    "+hra);
+		System.out.println("PROVIDENT FUND    :    "+pf);
+		System.out.println("SOCIAL CLUB FUND    :    "+scf);
+		System.out.println("GROSS PAY    :    "+gross);
+		System.out.println("NET TOTAL PAY    :    "+net);
+	}
+}
+//class main
+class shape
+{
+	public static void main(String[] args) 
+	{
+		int ch;
+		Scanner ab=new Scanner(System.in);
+System.out.println("CODE PERFORMED BY :-UMESH CHAVAN");
+		System.out.println("Select the Designation");
+		System.out.println("   MENU   ");
+		System.out.println("1.PROGRAMMER \n2.TEAM HEAD \n3.ASSISTANT PROJECT MANAGER \n4.PROJECT MANAGER \n");
+		ch=ab.nextInt();
+		switch (ch)
+		{
+		case 1:
+			Programmer a=new Programmer();
+			a.get_data();
+			a.display();
+			a.calculate();
+			break;
+		case 2:
+			Team_head b=new Team_head();
+			b.get_data();
+			b.display();
+			b.calculate();
+			break;
+		case 3:
+			Ass_prj_man c=new Ass_prj_man();
+			c.get_data();
+			c.display();
+			c.calculate();
+			break;
+		case 4:
+			Prj_man d=new Prj_man();
+			d.get_data();
+			d.display();
+			d.calculate();
+			break;
+		default:
+			System.out.println("Invalid Choice");
+		}
+		ab.close();
+	}
+}
