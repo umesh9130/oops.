@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+class complex {
+
+    float real;
+    float img;
+
+    complex() // default constructor
+    {
+        this.real = 0;
+        this.img = 0;
+    }
+
+    complex(float i, float j) // parameterized constructor
+    {
+
+        this.real = i;
+        this.img = j;
+    }
+
+    void add(complex c1, complex c2) // Addition algorithm
+    {
+        complex c3 = new complex();
+        c3.real = (c1.real + c2.real);
+        c3.img = (c1.img + c2.img);
+        System.out.println("Addition of complex no. is: " + c3.real + "+" + c3.img + "i");
+    }
+
+    void sub(complex c1, complex c2) // subtraction algorithm
+    {
+        complex c3 = new complex();
+        c3.img = (c1.img - c2.img);
+        c3.real = (c1.real - c2.real);
+        System.out.println("Substraction of complex no. is:" + c3.real + "-" + c3.img + "i");
+    }
+
+    void mult(complex c1, complex c2) // multiplication algorithm
+    {
+        complex c3 = new complex();
+        c3.real = ((c1.real * c2.real) - (c1.img * c2.img));
+        c3.img = ((c1.real * c2.img) + (c2.real * c1.img));
+        System.out.println("Multiplication of complex no.is: " + c3.real + "+" + c3.img + "");
+    }
+
+    void div(complex c1, complex c2) // division algorithm
+    {
+        complex c3 = new complex();
+        c3.real = (((c1.real * c2.real) - (c1.img * c2.img)) / ((c2.real * c2.real) + (c2.img * c2.img)));
+        c3.img = (((c2.real * c1.img) + (c1.real * c2.img)) / ((c2.real * c2.real) + (c2.img * c2.img)));
+        System.out.println("Division of complex no. is: " + c3.real + "+" + c3.img + "i");
+    }
+}
+
+class oops1 {
+    static int ch;
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        complex c1 = new complex();
+        System.out.println("real no.1 = ");
+        c1.real = sc.nextFloat();
+        System.out.println("img no. 1 = ");
+        c1.img = sc.nextFloat();
+        System.out.println("real no. 2 = ");
+        float num1 = sc.nextFloat();
+        System.out.println("img no. 2 = ");
+        float num2 = sc.nextFloat();
+        complex c2 = new complex(num1, num2);
+        complex c3 = new complex();
+        do {
+            System.out.println("Menu");
+            System.out.println("1.Add \n2.Sub \n3.Mult \n4.Div");
+            ch = sc.nextInt();
+            switch (ch) {
+                case 1: {
+                    c3.add(c1, c2);
+                    break;
+                }
+                case 2: {
+                    c3.sub(c1, c2);
+                    break;
+                }
+                case 3: {
+                    c3.mult(c1, c2);
+                    break;
+                }
+                case 4: {
+                    c3.div(c1, c2);
+                    break;
+                }
+                case 5: {
+                    ch = 5;
+                }
+                default: {
+                    System.out.println("Choose numbers between 1 to 4 only");
+                }
+            }
+        } while (ch != 5);
+        sc.close();
+    }
+}
